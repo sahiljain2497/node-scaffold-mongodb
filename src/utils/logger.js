@@ -1,16 +1,14 @@
 const winston = require('winston');
-const config = require('better-config');
 const appRoot = require('app-root-path');
 
-const levels = { 
-  error: 0,
-  warn: 1,
-  info: 2,
-  http: 3,
-  verbose: 4,
-  debug: 5,
-  silly: 6
-};
+// const levels = { error: 0,
+//   warn: 1,
+//   info: 2,
+//   http: 3,
+//   verbose: 4,
+//   debug: 5,
+//   silly: 6,
+// };
 
 // Create a logger based on the log level in config.json
 const logger = winston.createLogger({
@@ -35,7 +33,7 @@ const logger = winston.createLogger({
       ),
     }),
   ],
-  exitOnError: false
+  exitOnError: false,
 });
 
 logger.stream = {

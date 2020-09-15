@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "./node_modules/nodemon/bin/nodemon.js",
-    "lint": "./node_modules/eslint/bin/eslint.js src tests",
+    "lint": "./node_modules/eslint/bin/eslint.js src/**",
     "start": "node ./src/app.js",
     "test": "jest --no-colors",
     "testdev": "jest --watch"
@@ -39,6 +39,7 @@
     "babel-register": "^6.26.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
