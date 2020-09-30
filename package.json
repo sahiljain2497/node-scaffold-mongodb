@@ -37,6 +37,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "babel-register": "^6.26.0",
+    "console-table-printer": "^2.4.13",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
