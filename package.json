@@ -7,17 +7,24 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "./node_modules/nodemon/bin/nodemon.js",
     "lint": "./node_modules/eslint/bin/eslint.js src/**",
-    "start": "node ./src/app.js",
-    "test": "jest --no-colors",
-    "testdev": "jest --watch"
+    "start": "npm run prod", 
+    "server": "node ./dist-server/app.js",
+    "dev": "NODE_ENV=development npm-run-all build server",
+    "prod": "NODE_ENV=production npm-run-all build server",
+    "transpile": "babel ./src --out-dir dist-server",
+    "build": "npm-run-all clean transpile",
+    "clean": "rimraf dist-server",
+    "watch:dev": "nodemon", 
+    "test": "jest" 
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "app-root-path": "^3.0.0",
-    "better-config": "^1.2.3",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -29,7 +36,9 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.1.0",
+    "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
+    "rimraf": "^3.0.2",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "winston": "^3.3.3"
@@ -46,5 +55,16 @@
     "eslint-plugin-react": "^7.20.6",
     "jest": "^26.4.2",
     "nodemon": "^2.0.4"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [ "src/*", "config/*" ],
+    "ignore": [ "**/__tests__/**", "*.test.js", "*.spec.js" ] 
+  }, 
+  "babel": { 
+    "presets": [ "@babel/preset-env" ]
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

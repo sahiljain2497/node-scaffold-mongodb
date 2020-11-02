@@ -1,18 +1,14 @@
 require('dotenv').config();
-const config = require('better-config');
-
-config.set('../config/config.json');
-// done loading config
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const path = require('path');
-const helmet = require('helmet');
-const cors = require('cors');
-const logger = require('./utils/logger');
-const indexRoutes = require('./routes/index.routes');
-const adminRoutes = require('./routes/admin.routes');
-const db = require('./models');
+import express from 'express';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import path from 'path';
+import helmet from 'helmet';
+import cors from 'cors';
+import logger from './utils/logger';
+import indexRoutes from './routes/index.routes';
+import adminRoutes from './routes/admin.routes';
+import db from './models';
 
 const app = express();
 // Set up Express components.
